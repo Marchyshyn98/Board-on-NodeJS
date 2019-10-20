@@ -1,0 +1,56 @@
+<% include ../layout/header.ejs %>
+<div class="main">
+    <div class="container">
+        <div class="content">
+            <% adverts.forEach(function(advert) { %>
+            <div class="advert">
+                <div class="top">
+                    <h2>
+                        <a href="/adverts/<%=advert.url %>">
+                            <%=advert.title %>
+                        </a>
+                        <!-- Якщо власник поста = зареєстрований юзер, то йому можна редагувати пост -->
+                        <% if(advert.owner.login === user.login) { %>
+
+                        <a href="/advert/edit/<%=advert.id %>"
+                            style="color: black; text-decoration: none; font-size: 25px;"> ✎</a>
+
+                        <% } %>
+
+                    </h2>
+                </div>
+                <div class="body">
+                    <p>
+                        <%=advert.body %>
+                    </p>
+                </div>
+                <div class="bottom">
+                    <div class="contacts">
+                        <b>Ім'я: </b><a class="owner"
+                            href="/users/<%=advert.owner.login %>"><%=advert.owner.login %></a>
+                        <br>
+                        <p class="phone"><b>Телефон: </b><%=advert.phone %></p>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+            <div class="pagination">
+                <a href="" class="new"></a>
+                <% if(current == 2) { %>
+                <a class="new" href="/">← На головну</a>
+                <% } %>
+                <% if(current > 2) { %>
+                <a class="new" href="/archive/<%=Number(current) - 1 %>">← До нових</a>
+                <% } %>
+                <% if(pages > 0 && current < pages) { %>
+                <a class="old" href="/archive/<%=Number(current) + 1 %>">До попередніх →</a>
+                <% } %>
+            </div>
+        </div>
+
+
+
+        <% include ../layout/sidebar.ejs %>
+    </div>
+</div>
+<% include ../layout/footer.ejs %>

@@ -1,0 +1,33 @@
+<% include ../layout/header.ejs %>
+<div class="main">
+    <div class="container">
+        <div class="content add-advert">
+            <form method="POST" class="advert-form">
+                <% if (typeof advert !== 'undefined') { %>
+                <h2>Редагувати оголошення</h2>
+                <% } else { %>
+                <h2>Додати оголошення</h2>
+                <% } %>
+                <div class="form-group">
+                    <label for="title">Заголовок</label>
+                    <input type="text" id="advert-title" name="advert-title" value="<%=typeof advert !== 'undefined' ? advert.title : '' %>">
+                </div>
+                <div class="form-group">
+                    <label for="text">Текст</label>
+                    <textarea id="advert-body" name="advert-body"><%=typeof advert !== 'undefined' ? advert.body : '' %></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <input type="text" id="advert-phone" name="advert-phone" value="<%=typeof advert !== 'undefined' ? advert.phone : '' %>">
+                </div>
+                <input type="hidden" id="advert-id" value="<%=typeof advert !== 'undefined' ? advert.id : '' %>">
+                <div class="buttons">
+                    <button class="save-button inverse-secondary">Зберегти як чорновик</button>
+                    <button class="publish-button">Опублікувати</button>
+                </div>
+            </form>
+        </div>
+        <% include ../layout/sidebar.ejs %>
+    </div>
+</div>
+<% include ../layout/footer.ejs %>

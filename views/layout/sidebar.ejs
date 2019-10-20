@@ -1,0 +1,56 @@
+<div class="sidebar">
+    <div class="box auth">
+        <% if(!user.id && !user.login) { %>
+        <form method="post" class="login">
+            <h2>Вхід</h2>
+            <div class="form-group">
+                <label for="login">Логін</label>
+                <input type="text" id="login-login" name="login" />
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input type="password" id="login-password" name="password" />
+            </div>
+            <div class="buttons">
+                <button class="switch-button inverse-secondary">Реєстрація</button>
+                <button class="login-button">Увійти</button>
+            </div>
+        </form>
+
+        <form method="post" class="register">
+            <h2>Реєстрація</h2>
+            <div class="form-group">
+                <label for="register-login">Логін</label>
+                <input type="text" id="register-login" name="login" />
+            </div>
+            <div class="form-group">
+                <label for="register-password">Пароль</label>
+                <input type="password" id="register-password" name="password" />
+            </div>
+            <div class="form-group">
+                <label for="register-password">Підтвердження пароля</label>
+                <input type="password" id="register-password-confirm" name="passwordConfirm" />
+            </div>
+            <div class="buttons">
+                <button class="switch-button inverse-secondary">Вхід</button>
+                <button class="register-button">Реєстрація</button>
+            </div>
+        </form>
+        <% } else { %>
+        <ul>
+            <li>
+                <%=user.login %>, тепер ви можете <a href="/advert/add">публікувати</a> оголошення!
+            </li>
+            <li>
+                <a href="/advert/add">Додати оголошення</a>
+            </li>
+            <li>
+                <a href="/api/auth/logout">Вихід</a>
+            </li>
+        </ul>
+        <p>
+            
+        </p>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<% include ../layout/header.ejs %>
+<div class="main">
+    <div class="container">
+        <div class="content">
+            <div class="advert">
+                <div class="top">
+                    <a href="">
+                        <h2><%=advert.title %></h2>
+                    </a>
+                </div>
+                <div class="body">
+                    <p>
+                        <%=advert.body %>
+                    </p>
+                </div>
+                <div class="bottom">
+                    <div class="contacts">
+                        <b>Ім'я: </b><a class="owner" href="/users/<%=advert.owner.login %>"><%=advert.owner.login %></a>
+                        <br>
+                        <p class="phone"><b>Телефон: </b><%=advert.phone %></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments" id="<%=advert.id %>">
+                <h3>Коментарі</h3>
+                <div class="comment-list">
+                    <%- include('../layout/comments.ejs', {items: comments}) %>
+
+                    <span class="link" id="new">Залишити коментар</span>
+                    <form class="comment">
+                        <textarea class="comment-body"></textarea>
+                        <div class="buttons">
+                            <button class="cancel secondary">Відміна</button>
+                            <button class="send">Відправити</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <% include ../layout/sidebar.ejs %>
+    </div>
+</div>
+<% include ../layout/footer.ejs %>

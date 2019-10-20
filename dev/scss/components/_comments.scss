@@ -1,0 +1,63 @@
+.comments {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $greyColor;
+  padding: $freeSpace;
+  margin-bottom: $freeSpace;
+  background-color: $whiteColor;
+  padding-bottom: 5px;
+
+  h3 {
+    margin-top: 0;
+  }
+
+  form.comment {
+    display: none;
+    // display: flex;
+    flex-direction: column;
+    max-width: 500px;
+  }
+
+  textarea {
+    margin-bottom: $freeSpace * 0.8;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      margin-left: 15px;
+      height: 26px;
+      font-size: 0.9em;
+    }
+  }
+  .comment-list {
+    ul {
+      list-style: none;
+      border-left: 1px solid $greyColor;
+      padding-left: $freeSpace * 1.2;
+
+      &:first-child {
+        border-left: 0;
+        padding-left: 0;
+      }
+
+      li {
+        display: flex;
+        flex-direction: column;
+        margin-top: $freeSpace;
+
+        .head {
+          display: flex;
+
+          .date {
+            margin-left: 10px;
+            font-style: italic;
+            color: lighten($blackColor, 45);
+          }
+        }
+      }
+    }
+  }
+}
