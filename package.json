@@ -44,7 +44,7 @@
     "jquery": "^3.4.1",
     "medium-editor": "^5.23.3",
     "mkdirp": "^0.5.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "mongoose": "^5.7.3",
     "mongoose-autopopulate": "^0.9.1",
     "mongoose-url-slugs": "^1.0.2",
